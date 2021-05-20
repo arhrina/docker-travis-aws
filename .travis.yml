@@ -1,0 +1,23 @@
+sudo: required
+# 관리자 권한 갖기
+
+language: generic
+# 언어(플랫폼) 선택
+
+services:
+  - docker
+# 도커 환경 구성
+
+# 스크립트를 실행할 환경 구성. 여기서는 dockerfile을 통해 image build
+before_install:
+  - echo "start creating an image with dockerfile"
+  - docker build -t hyoukim/docker-react-app -f dockerfile.dev .
+  # 도커명령어    build파일명                 dockerfile 지정  경로지정
+
+# 실행할 스크립트
+script:
+  - docker run -e CI=true hyoukim/docker-react-app npm run test -- --coverage
+
+# 스크립트 성공 후
+after_success:
+  - echo "TEST SUCCESS"
