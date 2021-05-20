@@ -1,6 +1,6 @@
 FROM node:alpine as builder
 # as builder를 통해 이 from부터 다음 from 전까진 모두 builder stage라는걸 명시
-WORKDIR '/usr/src/app'
+WORKDIR /usr/src/app
 COPY package.json .
 RUN npm install
 COPY ./ ./
