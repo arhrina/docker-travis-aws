@@ -35,16 +35,16 @@ deploy:
   region: "ap-northeast-2"
   
   # 생성된 AWS 어플리케이션의 이름
-  app: "도커 travis CI 실습"
+  app: "TravisCI_React"
   
   # 생성된 AWS 환경의 이름
-  env: "Travisci-env"
+  env: "ReactAWS"
 
   # elasticbeanstalk를 위한 s3 bucket 이름. Travis CI에서 가지고 있는 파일을 압축해서 s3로 먼저 보내고 s3에서 elastik으로 보낸다
   bucket_name: "elasticbeanstalk-ap-northeast-2-116047828143"
   
   # 생성된 AWS 어플리케이션의 이름과 동일
-  bucket_path: "도커 travis CI 실습"
+  bucket_path: "TravisCI_React"
 
   # github 어떤 브랜치에 업로드 될 때 deploy를 수행할 것인지
   on:
