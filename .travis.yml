@@ -21,3 +21,35 @@ script:
 # 스크립트 성공 후
 after_success:
   - echo "TEST SUCCESS"
+
+
+
+
+# 배포에 관한 설정
+deploy:
+  
+  # 외부 서비스 표시(s3, elasticbeanstalk, firebase ...)
+  provider: elasticbeanstalk
+  
+  # 현재 사용하고 있는 AWS의 서비스가 위치한 물리적 장소. AWS의 URL 참조
+  region: "ap-northeast-2"
+  
+  # 생성된 AWS 어플리케이션의 이름
+  app: "도커 travis CI 실습"
+  
+  # 생성된 AWS 환경의 이름
+  env: "Travisci-env"
+
+  # elasticbeanstalk를 위한 s3 bucket 이름. Travis CI에서 가지고 있는 파일을 압축해서 s3로 먼저 보내고 s3에서 elastik으로 보낸다
+  bucket_name: "elasticbeanstalk-ap-northeast-2-116047828143"
+  
+  # 생성된 AWS 어플리케이션의 이름과 동일
+  bucket_path: "도커 travis CI 실습"
+
+  # github 어떤 브랜치에 업로드 될 때 deploy를 수행할 것인지
+  on:
+    branch: master
+
+# $name으로 travis ci 저장소의 환경변수 값 가져와서 사용. 보여주지 않아야되는 키 값 등을 가릴 때 유효
+access_key_id: $AWS_ACCESS_KEY
+secret_access_key: $AWS_SECRET_ACCESS_KEY
