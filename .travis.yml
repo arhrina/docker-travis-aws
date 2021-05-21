@@ -11,7 +11,7 @@ services:
 # 스크립트를 실행할 환경 구성. 여기서는 dockerfile을 통해 image build
 before_install:
   - echo "start creating an image with dockerfile"
-  - docker build -t hyoukim/docker-react-app -f dockerfile.dev .
+  - docker build -t hyoukim/docker-react-app -f Dockerfile.dev .
   # 도커명령어    build파일명                 dockerfile 지정  경로지정
 
 # 실행할 스크립트
