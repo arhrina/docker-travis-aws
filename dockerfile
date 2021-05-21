@@ -8,6 +8,8 @@ RUN npm run build
 # build stage
 
 FROM nginx
+# port Mapping
+EXPOSE 80
 COPY --from=builder /usr/src/app/build /usr/share/nginx/html
 # build 경로에 있는 파일들을 share nginx로 복사. 공식문서 nginx가 제공할 수 있는 폴더
 # run stage
